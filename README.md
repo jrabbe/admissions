@@ -5,10 +5,12 @@ The following libraries need to be installed in the directory that is
 deployed to App Engine:
 
 httplib2 -> /usr/lib/python2.7/dist-packages/httplib2
+
 paypalrestsdk -> /usr/local/lib/python2.7/dist-packages/paypalrestsdk
+
 pytz -> ../../pytz-2013.8/build/lib.linux-x86_64-2.7/pytz
 
-Properties (e.g. 'admissions_email' are stored in the Config kind in
+Properties (e.g. 'admissions_email') are stored in the Config kind in
 the Datastore.
 
 Paypal web checkout documentation:
