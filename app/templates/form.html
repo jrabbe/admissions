@@ -1,0 +1,195 @@
+<html>
+  <head>
+    <title>San Francisco Schoolhouse Application</title>
+    <link rel="stylesheet" type="text/css" href="/css/admissions.css" />
+  </head>
+  <body>
+    <img src="http://www.sfschoolhouse.org/wp-content/uploads/2013/11/header.jpg">
+    <h2>Application</h2>
+    <form method="POST" action="/submit">
+    <input type="hidden" name="application_id" value="{{ application_id }}">
+    {{ form.non_field_errors }}
+    {% if form.errors %}
+      <p class="errmsg">Your form has errors and was not submitted. Please fix the errors described below and submit again.</p>
+      <!-- {{ form.errors }} -->
+    {% endif %}
+
+    <!-- Application ID: {{ application_id }} -->
+    <p>
+      Complete the questions below then submit the form. There is a
+      $50 registration fee per child. You will be redirected to Paypal 
+      to make this payment after submitting the form.
+    </p>
+    <p>
+      If you have any questions about this process, please contact info@sfschoolhouse.org.
+    </p>
+
+    <table>
+
+      <tr><th>
+        {% if form.child.errors %}
+          <div class="errmsg">{{ form.child.errors|striptags }}</div>
+        {% endif %}
+        <label for="id_child">Child name</label></th>
+	<td><input type="text" name="child" id="id_child" size=60 value="{{ form.child.data|default_if_none:"" }}" maxlength="500" /></td></tr>
+
+      <tr><th>
+        {% if form.gender.errors %}
+          <div class="errmsg">{{ form.gender.errors|striptags }}</div>
+        {% endif %}
+        <label for="id_gender">Child gender</label></th><td>
+        Male <input type="radio" name="gender" id="id_gender" value="male"
+          {% if form.gender.data == "male" %}
+            checked
+          {% endif %}
+        >
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Female <input type="radio" name="gender" id="id_gender" value="female"
+          {% if form.gender.data == "female" %}
+            checked
+          {% endif %}
+        >
+        </td></tr>
+
+      <tr><th>
+        {% if form.parent_1.errors %}
+          <div class="errmsg">{{ form.parent_1.errors|striptags }}</div>
+        {% endif %}
+        <label for="id_parent_1">Parent&nbsp;1&nbsp;name</label></th>
+	<td><input type="text" name="parent_1" id="id_parent_1" size=60 value="{{ form.parent_1.data|default_if_none:"" }}" maxlength="500"/></td></tr>
+
+      <tr>
+	<th><label for="id_parent_2">Parent&nbsp;2&nbsp;name</label></th>
+	<td><input type="text" name="parent_2" id="id_parent_2" size=60 value="{{ form.parent_2.data|default_if_none:"" }}" maxlength="500"/></td></tr>
+
+      <tr><th>
+        {% if form.address.errors %}
+          <div class="errmsg">{{ form.address.errors|striptags }}</div>
+        {% endif %}
+	<label for="id_address">Parent address</label></th>
+	<td><textarea name="address" id="id_address" rows="5" cols="40">{{ form.address.data|default_if_none:"" }}</textarea></td></tr>
+
+      <tr><th>
+        {% if form.telephone.errors %}
+          <div class="errmsg">{{ form.telephone.errors|striptags }}</div>
+        {% endif %}
+	  <label for="id_telephone">Parent&nbsp;phone&nbsp;number</label></th>
+	<td><input type="text" name="telephone" id="id_telephone" value="{{ form.telephone.data|default_if_none:"" }}" maxlength="50"/></td></tr>
+
+      <tr><th>
+        {% if form.email_1.errors %}
+          <div class="errmsg">{{ form.email_1.errors|striptags }}</div>
+        {% endif %}
+        <label for="id_email_1">Parent&nbsp;1&nbsp;email</label></th>
+	<td><input type="text" name="email_1" id="id_email_1" size="60" value="{{ form.email_1.data|default_if_none:"" }}" maxlength="500"/></td></tr>
+
+      <tr><th>
+        {% if form.email_2.errors %}
+          <div class="errmsg">{{ form.email_2.errors|striptags }}</div>
+        {% endif %}
+	<label for="id_email_2">Parent&nbsp;2&nbsp;email</label></th>
+	<td><input type="text" name="email_2" id="id_email_2" size="60"value="{{ form.email_2.data|default_if_none:"" }}" maxlength="500"/></td></tr>
+
+      <tr><th>
+        {% if form.birthday.errors %}
+          <div class="errmsg">{{ form.birthday.errors|striptags }}</div>
+        {% endif %}
+	<label for="id_birthday">Child&nbsp;birth&nbsp;date (MM/DD/YYYY)</label></th>
+	<td><input type="text" name="birthday" id="id_birthday" value="{{ form.birthday.data|default_if_none:"" }}" maxlength="50"/></td></tr>
+
+      <tr><th><label for="id_current_grade">Child&nbsp;current&nbsp;grade</label></th>
+	<td><select name="current_grade" id="id_current_grade">
+	        <option value="Pre-K"
+              {% if form.current_grade.data == "Pre-K" %}
+                 selected="selected"
+              {% endif %}
+            >Pre-K</option>
+		    <option value="Kindergarten"
+              {% if form.current_grade.data == "Kindergarten" %}
+                 selected="selected"
+              {% endif %}
+            >Kindergarten</option>
+		    <option value="Grade 1"
+              {% if form.current_grade.data == "Grade 1" %}
+                 selected="selected"
+              {% endif %}
+            >Grade 1</option>
+		    <option value="Grade 2"
+              {% if form.current_grade.data == "Grade 2" %}
+                 selected="selected"
+              {% endif %}
+            >Grade 2</option>
+		    <option value="Grade 3"
+              {% if form.current_grade.data == "Grade 3" %}
+                 selected="selected"
+              {% endif %}
+            >Grade 3</option>
+		    <option value="Grade 4"
+              {% if form.current_grade.data == "Grade 4" %}
+                 selected="selected"
+              {% endif %}
+            >Grade 4</option>
+		    <option value="Grade 5"
+              {% if form.current_grade.data == "Grade 5" %}
+                 selected="selected"
+              {% endif %}
+            >Grade 5</option>
+      </select></td></tr>
+
+      <tr><th>
+        {% if form.current_school.errors %}
+          <div class="errmsg">{{ form.current_school.errors|striptags }}</div>
+        {% endif %}
+        <label for="id_current_school">Name of child&#39;s current school</label></th>
+	<td><input type="text" name="current_school" id="id_current_school" size="60" value="{{ form.current_school.data|default_if_none:"" }}" maxlength="500"/></td></tr>
+
+      <tr><th>
+        {% if form.school_address.errors %}
+          <div class="errmsg">{{ form.school_address.errors|striptags }}</div>
+        {% endif %}
+        <label for="id_school_address">Address of child&#39;s current school</label></th>
+	<td><textarea name="school_address" id="id_school_address" rows="5" cols="40">{{ form.school_address.data|default_if_none:"" }}</textarea></td></tr>
+
+      <tr><th>
+        {% if form.essay_why.errors %}
+          <div class="errmsg">{{ form.essay_why.errors|striptags }}</div>
+        {% endif %}
+        <label for="id_essay_why">Why do you want your child to attend the Schoolhouse?</label></th>
+	<td><textarea name="essay_why" id="id_essay_why" rows=20 cols=100>{{ form.essay_why.data|default_if_none:"" }}</textarea></td></tr>
+
+      <tr><th>
+        {% if form.describe_child.errors %}
+          <div class="errmsg">{{ form.describe_child.errors|striptags }}</div>
+        {% endif %}
+        <label for="id_describe_child">Please tell us about your child so we can better get to know him or her.</label></th>
+	<td><textarea name="describe_child" id="id_describe_child" rows=20 cols=100>{{ form.describe_child.data|default_if_none:"" }}</textarea></td></tr>
+
+      <tr><td colspan="2"><b>The Schoolhouse is a parent participation
+      school to volunteer with administrative duties and
+      extracurricular activities.</b></td></tr>
+
+      <tr><th>
+        {% if form.essay_how.errors %}
+          <div class="errmsg">{{ form.essay_how.errors|striptags }}</div>
+        {% endif %}
+        <label for="id_essay_how">Please describe how your family will participate in the Schoolhouse?</label></th>
+	<td><textarea name="essay_how" id="id_essay_how" rows=20 cols=100>{{ form.essay_how.data|default_if_none:"" }}</textarea></td></tr>
+
+      <tr><th></th>
+         <td><p><b>Notice of nondiscriminatory policy as to students</b></p>
+    <p>The San Francisco Schoolhouse admits students of any race,
+      color, national and ethnic origin to all the rights, privileges,
+      programs, and activities generally accorded or made available to
+      students at the school. It does not discriminate on the basis of race,
+      color, national and ethnic origin in administration of its educational
+      policies, admissions policies, scholarship, and loan programs, and
+      athletic and other school-administered programs</p></td></tr>
+      <tr><th></th>
+	<td>Press the button to submit your application, which will redirect you to Paypal to pay the $50 application fee.</td></tr>
+
+      <tr><th></th>
+        <td><input type="submit" value="Submit"></td></tr>
+    </form>
+    </table>
+  </body>
+</html>

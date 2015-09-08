@@ -1,0 +1,35 @@
+<table>
+<tr>
+ <th>Application ID</th>
+ <th>Child</th>
+ <th>Gender</th>
+ <th>Parent 1</th>
+ <th>Parent 2</th>
+ <th>Address</th>
+ <th>Phone</th>
+ <th>Birthday</th>
+ <th>Current grade</th>
+ <th>Current school</th>
+ <th>School address</th>
+ <th>Why SF Schoolhouse?</th>
+ <th>Describe your child.</th>
+ <th>How will you participate?</th>
+</tr>
+{% for a in applications %}
+<tr>
+  <td>{{ a.key }}</td>
+  <td>{{ a.child }}</td>
+  <td>{{ a.gender }}</td>
+  <td>{{ a.parent_1 }} ({{ a.email_1 }})</td>
+  <td>{{ a.parent_2 }} ({{ a.email_2 }})</td>
+  <td>{{ a.address }}</td>
+  <td>{{ a.telephone }}</td>
+  <td>{{ a.birthday }}</td>
+  <td>{{ a.current_grade }}</td>
+  <td>{{ a.school_address }}</td>
+  <td>{{ a.essay_why }}</td>
+  <td>{{ a.describe_child }}</td>
+  <td>{{ a.essay_how }}</td>
+</tr>
+{% endfor %}
+</table>

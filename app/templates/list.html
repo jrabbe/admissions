@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>SF Schoolhouse applications</title>
+    <link rel="stylesheet" type="text/css" href="/css/admissions.css" />
+  </head>
+  <body>
+    <img src="http://www.sfschoolhouse.org/wp-content/uploads/2013/11/header.jpg">
+    <h2>SF Schoolhouse applications</h2>
+
+<table>
+<tr>
+ <th>ID</th>
+ <th>Child</th>
+ <th>Gender</th>
+ <th>Birthday</th>
+ <th>Current grade</th>
+ <th>Application date</th>
+ <th>Paid</th>
+</tr>
+{% for a in applications %}
+<tr>
+  <td>{{ a.key.id() }}</td>
+  <td><a href="/export/application?application_id={{ a.key.id() }}">{{ a.child }}</a></td>
+  <td>{{ a.gender }}</td>
+  <td>{{ a.birthday }}</td>
+  <td>{{ a.current_grade }}</td>
+  <td>{{ a.created_date_pacific.strftime('%Y-%m-%d') if a.created_date_pacific != None }}</td>
+  <td>{{ a.paid_currency if a.paid_currency != None }}
+      {{ a.paid_amount if a.paid_amount != None }}</td>
+</tr>
+{% endfor %}
+</table>
+
+  </body>
+</html>

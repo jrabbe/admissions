@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>Application: {{ application.child }}</title>
+    <link rel="stylesheet" type="text/css" href="/css/admissions.css" />
+  </head>
+  <body>
+    <img src="http://www.sfschoolhouse.org/wp-content/uploads/2013/11/header.jpg">
+    <h2>Application: {{ application.child }}</h2>
+    <table>
+
+      <tr><th>Application ID</th>
+	<td colspan=2>{{ application_id }}</td></tr>
+
+      <tr><th>Child name</th>
+	<td>{{ application.child }}</td></tr>
+
+      <tr><th>Gender</th>
+	<td colspan=2>{{ application.gender }}</td></tr>
+
+      <tr><th>Birthday</th>
+	<td colspan=2>{{ application.birthday }}</td></tr>
+
+      <tr><th>Current grade</th>
+	<td colspan=2>{{ application.current_grade }}</td></tr>
+
+      <tr><th>Current school</th>
+	<td colspan=2>{{ application.current_school }}</td></tr>
+
+      <tr><th>School address</th>
+	<td colspan=2>{{ application.school_address }}</td></tr>
+
+      <tr><th>Paid amount</th>
+	<td colspan=2>{{ application.paid_currency if application.paid_currency != None }}
+                      {{ application.paid_amount if application.paid_amount != None }}</td></tr>
+
+      <tr><th>Application date</th>
+	<td colspan=2>{{ application.created_date.strftime('%Y-%m-%d') if application.created_date != None }}</td></tr>
+
+      <tr><th>Parent 1</th>
+	<td>{{ application.parent_1 }}</td>
+	<td>{{ application.email_1 }}</td></tr>
+
+      <tr><th>Parent 2</th>
+	<td>{{ application.parent_2 }}</td>
+	<td>{{ application.email_2 }}</td></tr>
+
+      <tr><th>Address</th>
+	<td colspan=2>{{ application.address }}</td></tr>
+
+      <tr><th>Phone</th>
+	<td colspan=2>{{ application.telephone }}</td></tr>
+
+      <tr><th>Why SF Schoolhouse</th>
+	<td colspan=2>{{ application.essay_why }}</td></tr>
+
+      <tr><th>Describe your child</th>
+	<td colspan=2>{{ application.describe_child }}</td></tr>
+
+      <tr><th>How will you participate</th>
+	<td colspan=2>{{ application.essay_how }}</td></tr>
+
+    </table>
+  </body>
+</html>

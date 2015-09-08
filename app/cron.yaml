@@ -1,0 +1,5 @@
+# uses UTC timezone
+cron:
+- description: Daily exception report
+  url: /_ereporter?sender=jlowry@gmail.com&to=jlowry@gmail.com
+  schedule: every day 00:00

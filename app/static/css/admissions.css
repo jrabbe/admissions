@@ -1,0 +1,15 @@
+body {
+  font-family: arial;
+}
+td {
+  padding: 10px;
+  text-align: left;
+}
+th {
+  padding: 10px;
+  text-align: right;
+  vertical-align: top;
+}
+.errmsg {
+  color: red;
+}

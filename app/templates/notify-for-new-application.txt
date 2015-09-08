@@ -1,0 +1,47 @@
+Thank you for your application for {{ application.child }} to San
+Francisco Schoolhouse.
+
+You will receive an email receipt from Paypal once your payment of the
+application fee has successfully gone through.
+
+You can respond to this email if you have any further questions about
+your application.
+
+Details of your application are below:
+
+Child name: {{ application.child }}
+
+Application ID: {{ application_id }}
+
+Gender: {{ application.gender }}
+
+Birthday: {{ application.birthday }}
+
+Current grade: {{ application.current_grade }}
+
+Current school: {{ application.current_school }}
+
+School address: {{ application.school_address }}
+
+Application date: {{ application.created_date.strftime('%Y-%m-%d') if application.created_date != None }}
+
+Parent 1: {{ application.parent_1 }} {{ application.email_1 }}
+
+Parent 2: {{ application.parent_2 }} {{ application.email_2 }}
+
+Address: {{ application.address }}
+
+Phone: {{ application.telephone }}
+
+Why SF Schoolhouse: 
+
+{{ application.essay_why }}
+
+Describe your child: 
+
+{{ application.describe_child }}
+
+How will you participate: 
+
+{{ application.essay_how }}
+

@@ -1,0 +1,7 @@
+We have received payment for the following application to San
+Francisco Schoolhouse:
+
+Application ID: {{ application_id }}
+Child: {{ application.child }}
+
+For more details go to {{ url }}

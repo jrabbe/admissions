@@ -1,0 +1,50 @@
+application: s~admissions-prod
+version: 38
+runtime: python27
+threadsafe: false
+api_version: 1
+
+handlers:
+
+- url: /favicon.ico
+  static_files: static/images/favicon.ico
+  upload: static/images/favicon.ico
+
+- url: /apple-touch-icon.png
+  static_files: static/images/admissions.ico
+  upload: static/images/admissions.ico
+
+- url: /css
+  static_dir: static/css
+
+- url: /js
+  static_dir: static/js
+
+- url: /html
+  static_dir: static/html
+
+- url: /_ereporter.*
+  script: $PYTHON_LIB/google/appengine/ext/ereporter/report_generator.py
+  login: admin
+
+- url: /export/.*
+  script: export.app
+  login: admin
+
+- url: /tasks/.*
+  script: tasks.app
+  login: admin
+
+- url: /.*
+  script: main.app
+
+builtins:
+- remote_api: on
+
+libraries:
+- name: django
+  version: "1.2"
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest

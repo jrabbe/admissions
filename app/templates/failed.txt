@@ -1,0 +1,5 @@
+Failed payments:
+
+{% for a in applications %}
+* {{ a.child }} {{ url_prefix }}{{ a.key.id() }}
+{% endfor %}
